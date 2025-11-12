@@ -1,0 +1,124 @@
+{
+  "posts": [
+    {
+      "id": "1",
+      "title": "First Example Post",
+      "content": "This is an example content for your first post.",
+      "image_url": "https://ibb.co/xSVsjdQm",
+      "type": "news",
+      "sharing_time": "2025-11-12T12:30:00",
+      "status": "active",
+      "publish_status": "published",
+      "author": "Zamina",
+      "url": "naa.edu.az/"
+    },
+    {
+      "id": "2",
+      "title": "New Feature Release",
+      "content": "We have released a new feature update for the platform.",
+      "image_url": "https://ibb.co/1JzgcRYR",
+      "type": "announcement",
+      "sharing_time": "2025-10-22T09:15:00",
+      "status": "active",
+      "publish_status": "published",
+      "author": "Admin",
+      "url": "naa.edu.az/"
+    },
+    {
+      "id": "3",
+      "title": "Weekly News Summary",
+      "content": "Here is the summary of this week's news and updates.",
+      "image_url": "https://ibb.co/sdfjFhv8",
+      "type": "news",
+      "sharing_time": "2025-09-18T17:45:00",
+      "status": "active",
+      "publish_status": "published",
+      "author": "Editor",
+      "url": "naa.edu.az/"
+    },
+    {
+      "id": "4",
+      "title": "System Maintenance Notice",
+      "content": "Scheduled maintenance will occur this weekend.",
+      "image_url": "https://ibb.co/CsnsfzTN",
+      "type": "announcement",
+      "sharing_time": "2025-08-02T11:00:00",
+      "status": "inactive",
+      "publish_status": "draft",
+      "author": "Tech Team",
+      "url": "naa.edu.az/"
+    },
+    {
+      "id": "5",
+      "title": "Platform Security Update",
+      "content": "Important security enhancements have been applied.",
+      "image_url": "https://ibb.co/xSVsjdQm",
+      "type": "news",
+      "sharing_time": "2025-07-11T14:20:00",
+      "status": "active",
+      "publish_status": "published",
+      "author": "Security Dept",
+      "url": "naa.edu.az/"
+    },
+    {
+      "id": "6",
+      "title": "UI Overhaul Announcement",
+      "content": "The user interface will be completely redesigned next month.",
+      "image_url": "https://ibb.co/1JzgcRYR",
+      "type": "announcement",
+      "sharing_time": "2025-06-26T10:10:00",
+      "status": "active",
+      "publish_status": "scheduled",
+      "author": "Design Team",
+      "url": "naa.edu.az/"
+    },
+    {
+      "id": "7",
+      "title": "Quarterly Performance Report",
+      "content": "The quarterly performance report is now available.",
+      "image_url": "https://ibb.co/sdfjFhv8",
+      "type": "news",
+      "sharing_time": "2025-05-05T16:35:00",
+      "status": "active",
+      "publish_status": "published",
+      "author": "Finance Dept",
+      "url": "naa.edu.az/"
+    },
+    {
+      "id": "8",
+      "title": "Upcoming Event Reminder",
+      "content": "Do not forget about our upcoming event this Friday.",
+      "image_url": "https://ibb.co/CsnsfzTN",
+      "type": "announcement",
+      "sharing_time": "2025-04-28T08:00:00",
+      "status": "inactive",
+      "publish_status": "draft",
+      "author": "Event Manager",
+      "url": "naa.edu.az/"
+    },
+    {
+      "id": "9",
+      "title": "Service Expansion News",
+      "content": "We are expanding our services to new regions.",
+      "image_url": "https://ibb.co/xSVsjdQm",
+      "type": "news",
+      "sharing_time": "2025-03-14T13:55:00",
+      "status": "active",
+      "publish_status": "published",
+      "author": "Corporate Team",
+      "url": "naa.edu.az/"
+    },
+    {
+      "id": "10",
+      "title": "Holiday Schedule Announcement",
+      "content": "Here is the official holiday schedule for this year.",
+      "image_url": "https://ibb.co/1JzgcRYR",
+      "type": "announcement",
+      "sharing_time": "2025-02-01T18:25:00",
+      "status": "inactive",
+      "publish_status": "draft",
+      "author": "HR Department",
+      "url": "naa.edu.az/"
+    }
+  ]
+}
