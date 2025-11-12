@@ -6,7 +6,7 @@ import EditPost from "./Modules/Posts/View/EditPost";
 const App = () => {
   return (
     <>
-      <div className="flex h-screen gap-2.5">
+      <div className="flex gap-8">
         <Header />
         <Routes>
           <Route path="/" element={<Post />} />

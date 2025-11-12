@@ -23,37 +23,35 @@ const Post = () => {
   return (
     <section className="newsAndAnnouncements ">
       <div className="container">
-        <div className=" row flex-col gap-4">
-          <div className="titleAndButtonBox flex justify-between items-center">
+        <div className=" row">
+          <div className="titleAndButtonBox">
             <div className="title">
-              <h2 className="text-nowrap font-medium text-2xl">
+              <h2>
                 News & Announcements
               </h2>
               <span className="quantity"> burda xeber sayi olacaq</span>
             </div>
             <div
-              className="button bg-blue-950 text-white rounded-4xl p-3 cursor-pointer"
-              onClick={() => {
-                setIsModalOpen(true);
-              }}
-            >
+              className="button"
+              
+                          >
               <span>+</span>
               <span>Add News and Announcements</span>
             </div>
           </div>
-          <table className="min-w-full border border-gray-300">
-            <thead className="bg-gray-100">
+          <table className="">
+            <thead className="">
               <tr>
-                <th className="px-4 py-2 border-b">ID</th>
-                <th className="px-4 py-2 border-b">Title</th>
-                <th className="px-4 py-2 border-b">Content</th>
-                <th className="px-4 py-2 border-b">Image</th>
-                <th className="px-4 py-2 border-b">Type</th>
-                <th className="px-4 py-2 border-b">Sharing Time</th>
-                <th className="px-4 py-2 border-b">Status</th>
-                <th className="px-4 py-2 border-b">Publish Status</th>
-                <th className="px-4 py-2 border-b">Author</th>
-                <th className="px-4 py-2 border-b">Action</th>
+                <th>ID</th>
+                <th>Title</th>
+                <th>Content</th>
+                <th>Image</th>
+                <th>Type</th>
+                <th>Sharing Time</th>
+                <th>Status</th>
+                <th>Publish Status</th>
+                <th>Author</th>
+                <th>Action</th>
               </tr>
             </thead>
             <tbody>
