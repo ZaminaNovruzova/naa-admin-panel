@@ -4,12 +4,14 @@ import { useQuery } from "@tanstack/react-query";
 import { Link } from "react-router-dom";
 import { useMemo, useState } from "react";
 import { FaSearch } from "react-icons/fa";
-import AddPost from "./AddPost";
+import FormModalWindow from "./FormModalWindow";
+
 const Post = () => {
   const [selectedCategory, setSelectedCategory] = useState("all posts");
   const [selectedStatus, setSelectedStatus] = useState("all");
   const [searchItem, setSearchItem] = useState("");
   const [modalIsOpened, setModalIsOpened] = useState(false);
+  const [overLayIsOpened, setOverLayIsOpened] = useState(false);
   const { data, isLoading, isError } = useQuery<Post[]>({
     queryKey: ["posts"],
     queryFn: PostService.readAllPosts,
@@ -42,10 +44,13 @@ const Post = () => {
 
   return (
     <section className="newsAndAnnouncements ">
+      <div className="overlay" onClick={() => setModalIsOpened(false)}></div>
       {modalIsOpened && (
         <div className="isOpened">
-          <div className="overlay"></div>
-          <AddPost />
+          <FormModalWindow
+            setOverlayIsOpened={setOverLayIsOpened}
+            setModalIsOpened={setModalIsOpened}
+          />
         </div>
       )}
       <div className="container">
@@ -61,7 +66,7 @@ const Post = () => {
             </div>
 
             <div
-              className="button"
+              className="openModalButton"
               onClick={() => {
                 setModalIsOpened(true);
               }}
@@ -148,7 +153,9 @@ const Post = () => {
                       >
                         edit
                       </Link>
-                      <div>delete</div>
+                      <div className="edit hover:text-red-500 cursor-pointer">
+                        delete
+                      </div>
                     </td>
                   </tr>
                 ))}

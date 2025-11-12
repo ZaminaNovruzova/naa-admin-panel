@@ -1,15 +1,12 @@
 .newsAndAnnouncements {
   padding: 30px;
+  .overLay {
+    width: 500px;
+    height: 100vh;
+    background-color: red;
+  }
   .isOpened {
-    .overLay {
-      background-color: black;
-      opacity: 0.5;
-      position: fixed;
-      z-index: 13000;
-      width: 100%;
-      height: 100%;
-      inset: 0;
-    }
+    position: relative;
   }
   .container {
     .row {
@@ -25,7 +22,7 @@
             margin-bottom: 10px;
           }
         }
-        .button {
+        .openModalButton {
           background-color: #243c7b;
           border-radius: 30px;
           cursor: pointer;

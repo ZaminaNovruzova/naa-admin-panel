@@ -1,0 +1,185 @@
+.createAndEditModalWindow {
+  position: fixed;
+  z-index: 15000;
+  width: 50%;
+  bottom: 5px;
+  top: 5px;
+  background-color: white;
+  padding: 10px;
+  border-radius: 16px;
+  opacity: 1;
+  background-color: rgb(239, 228, 228);
+  .container {
+    height: 100%;
+    .row {
+      height: 100%;
+      flex-direction: column;
+      gap: 10px;
+      button {
+        cursor: pointer;
+      }
+      .titleBox {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        .languageAndCloseButton {
+          display: flex;
+          justify-content: space-between;
+          .languageBox {
+            display: flex;
+            gap: 25px;
+            .language {
+              cursor: pointer;
+            }
+            .active {
+              border: 2px solid #243c7b;
+              border-radius: 20px;
+              padding: 4px 12px;
+            }
+          }
+          .closeButton {
+            cursor: pointer;
+            font-size: 22px;
+          }
+        }
+        .titleAndPageBox {
+          display: flex;
+          justify-content: space-between;
+          gap: 10px;
+          font-size: 28px;
+        }
+        .pagination {
+          display: flex;
+          gap: 10px;
+          .pageLine {
+            background-color: #e0e7fa;
+            width: 50%;
+            height: 4px;
+            border-radius: 6px;
+            cursor: pointer;
+          }
+          .pageIsOpened {
+            background-color: #243c7b;
+            cursor: pointer;
+          }
+        }
+      }
+      .pageFirst {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        .userBox {
+          display: flex;
+          flex-direction: column;
+          gap: 8px;
+          input {
+            padding-left: 8px;
+          }
+          .categories {
+            color: #1447e6;
+            display: flex;
+            gap: 8px;
+
+            .category {
+              border: 1px solid #1447e6;
+              height: 44px;
+              display: flex;
+              align-items: center;
+              padding: 8px 16px;
+              border-radius: 32px;
+              cursor: pointer;
+              input {
+                display: none;
+              }
+            }
+            .active {
+              background-color: #1447e6;
+              color: white;
+            }
+          }
+          .uploadBox {
+            height: 54px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            label {
+              cursor: pointer;
+              color: #787486;
+            }
+          }
+        }
+        .textareaBox {
+          h4 {
+            font-weight: 500;
+            color: #0a0a0a;
+          }
+          p {
+            color: #717182;
+          }
+          .textBox {
+            margin-top: 16px;
+            border-radius: 12px;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            .toolbar {
+              background-color: #ececf04d;
+              border-bottom: 1px solid #0000001a;
+            }
+            textarea {
+              width: 100%;
+            }
+          }
+        }
+        .nextButton {
+          height: 44px;
+          border-radius: 10px;
+          background-color: #243c7b;
+          padding: 8px 32px;
+          color: white;
+        }
+      }
+      .pageSecond {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        justify-content: space-between;
+        .userBox {
+          display: flex;
+          flex-direction: column;
+          gap: 25px;
+          .textBox {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            h4 {
+              font-weight: 500;
+            }
+          }
+          .uploadBox {
+            height: 249px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            label {
+              color: #787486;
+              cursor: pointer;
+            }
+          }
+        }
+        .buttons {
+          display: flex;
+          justify-content: space-between;
+          .cancelButton {
+            padding: 8px 16px;
+          }
+          .submitButton {
+            height: 44px;
+            border-radius: 10px;
+            background-color: #243c7b;
+            padding: 8px 32px;
+            color: white;
+          }
+        }
+      }
+    }
+  }
+}
