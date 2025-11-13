@@ -1,23 +1,29 @@
+import { yupResolver } from "@hookform/resolvers/yup";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
+import { postSchemaType } from "./EditPost";
+import { useModal } from "../../../context/ModalWindowContext";
+import { postSchema } from "../Models/PostsType";
 
-export interface ModalProps {
-  setModalIsOpened: (value: boolean) => void;
-  setOverlayIsOpened: (value: boolean) => void;
-}
-
-const FormModalWindow = ({
-  setModalIsOpened,
-  setOverlayIsOpened,
-}: ModalProps) => {
+const CreatePost = () => {
   const [pageIsOpened, setPageIsOpened] = useState(1);
   const [selectedLanguage, setSelectedLanguage] = useState<"AZ" | "EN">("AZ");
-  const { register, handleSubmit } = useForm({
+  const { closeModal } = useModal();
 
+  const {
+    register,
+    formState: { errors },
+  } = useForm<postSchema>({
+    resolver: yupResolver(postSchemaType),
+    defaultValues: {
+      title: "",
+      content: "",
+      type: "news",
+    },
   });
-  
+
   return (
-    <section className="createAndEditModalWindow">
+    <section className="editModalWindow">
       <div className="container">
         <div className="row">
           <div className="titleBox">
@@ -44,13 +50,7 @@ const FormModalWindow = ({
                   EN
                 </button>
               </div>
-              <div
-                className="closeButton"
-                onClick={() => {
-                  setModalIsOpened(false);
-                  setOverlayIsOpened(false);
-                }}
-              >
+              <div className="closeButton" onClick={closeModal}>
                 X
               </div>
             </div>
@@ -82,26 +82,35 @@ const FormModalWindow = ({
             >
               <div className="userBox">
                 <label htmlFor="title">Title</label>
-                <input id="title" type="text" placeholder="Enter title" />
+                <input
+                  id="title"
+                  type="text"
+                  placeholder="Enter title"
+                  {...register("title")}
+                />
               </div>
+              {errors.title && (
+                <span className="error">{errors.title.message}</span>
+              )}
               <div className="userBox">
                 <label htmlFor="slug">Slug</label>
                 <input
                   id="slug"
                   type="url"
                   placeholder="naa.edu.az/"
-                  disabled
+                  readOnly
                 />
               </div>
               <div className="userBox">
                 <label>Category</label>
+
                 <div className="categories">
                   <label className="category">
-                    <input type="radio" name="category" value="News" />
+                    <input type="radio" {...register("type")} />
                     <span>News</span>
                   </label>
                   <label className="category active">
-                    <input type="radio" name="category" value="Announcement" />
+                    <input type="radio" {...register("type")} />
                     <span>Announcement</span>
                   </label>
                 </div>
@@ -109,7 +118,7 @@ const FormModalWindow = ({
 
               <div className="userBox">
                 <label htmlFor="cover">Cover Image</label>
-                <div className="uploadBox">
+                <div className="uploadBox flex-col">
                   <input id="cover" type="file" className="hidden" />
                   <label htmlFor="cover" className="uploadText">
                     Upload Cover Image
@@ -124,23 +133,18 @@ const FormModalWindow = ({
                   headers, lists, and more.
                 </p>
                 <div className="textBox">
-                  <div className="toolbar">
-                    <button type="button">
-                      <b>B</b>
-                    </button>
-                    <button type="button">
-                      <i>I</i>
-                    </button>
-                    <button type="button">H1</button>
-                    <button type="button">H2</button>
-                    <button type="button">•</button>
-                    <button type="button">1.</button>
-                  </div>
-                  <textarea rows="5" cols="50"></textarea>
+                  <textarea
+                    rows={5}
+                    cols={50}
+                    {...register("content")}
+                  ></textarea>
                 </div>
               </div>
+              {errors.content && (
+                <span className="error">{errors.content.message}</span>
+              )}
+
               <button
-                type="submit"
                 className="nextButton"
                 onClick={() => {
                   setPageIsOpened(2);
@@ -169,14 +173,9 @@ const FormModalWindow = ({
                   </label>
                 </div>
               </div>
+
               <div className="buttons">
-                <button
-                  className="cancelButton"
-                  onClick={() => {
-                    setModalIsOpened(false);
-                    setOverlayIsOpened(false);
-                  }}
-                >
+                <button className="cancelButton" onClick={closeModal}>
                   Cancel
                 </button>
                 <button className="submitButton">Submit</button>
@@ -189,4 +188,4 @@ const FormModalWindow = ({
   );
 };
 
-export default FormModalWindow;
+export default CreatePost;

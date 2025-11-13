@@ -1,4 +1,4 @@
-import type { Post } from "../Models/PostsType";
+import type { Post, postSchema } from "../Models/PostsType";
 import * as PostProvider from "../Provider/PostsProvider";
 
 export class PostService {
@@ -12,6 +12,13 @@ export class PostService {
   };
   static readSinglePost = async (id: string): Promise<Post> => {
     return await PostProvider.getSinglePost(id).then((response) => {
+      return response.data;
+    });
+  };
+  static editPost = async (payload:postSchema,id:string)=> {
+    return await PostProvider.putSinglePost(payload,id).then((response) => {
+      console.log(response.data,"alasaks")
+
       return response.data;
     });
   };

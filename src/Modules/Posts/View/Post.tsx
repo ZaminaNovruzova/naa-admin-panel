@@ -1,17 +1,18 @@
 import { PostService } from "../Service/PostsService";
 import type { Post } from "../Models/PostsType";
 import { useQuery } from "@tanstack/react-query";
-import { Link } from "react-router-dom";
 import { useMemo, useState } from "react";
 import { FaSearch } from "react-icons/fa";
-import FormModalWindow from "./FormModalWindow";
+import CreatePost from "./CreatePost";
+import { useModal } from "../../../context/ModalWindowContext";
+import EditPost from "./EditPost";
 
 const Post = () => {
   const [selectedCategory, setSelectedCategory] = useState("all posts");
   const [selectedStatus, setSelectedStatus] = useState("all");
   const [searchItem, setSearchItem] = useState("");
-  const [modalIsOpened, setModalIsOpened] = useState(false);
-  const [overLayIsOpened, setOverLayIsOpened] = useState(false);
+  const { modalIsOpened, openModal, closeModal, selectedPost } = useModal();
+
   const { data, isLoading, isError } = useQuery<Post[]>({
     queryKey: ["posts"],
     queryFn: PostService.readAllPosts,
@@ -44,13 +45,15 @@ const Post = () => {
 
   return (
     <section className="newsAndAnnouncements ">
-      <div className="overlay" onClick={() => setModalIsOpened(false)}></div>
+      <div className="overlay" onClick={closeModal}></div>
       {modalIsOpened && (
         <div className="isOpened">
-          <FormModalWindow
-            setOverlayIsOpened={setOverLayIsOpened}
-            setModalIsOpened={setModalIsOpened}
-          />
+          <CreatePost />
+        </div>
+      )}
+      {modalIsOpened && selectedPost && (
+        <div className="isOpened">
+          <EditPost />
         </div>
       )}
       <div className="container">
@@ -65,12 +68,7 @@ const Post = () => {
               )}
             </div>
 
-            <div
-              className="openModalButton"
-              onClick={() => {
-                setModalIsOpened(true);
-              }}
-            >
+            <div className="openModalButton" onClick={openModal}>
               <p className="add">+</p>
               <p>Add News and Announcements</p>
             </div>
@@ -95,7 +93,7 @@ const Post = () => {
               >
                 <option value="all">All</option>
                 <option value="active">Active</option>
-                <option value="inactive">Inactive</option>{" "}
+                <option value="inactive">Inactive</option>
               </select>
             </div>
             <div className="search outline-1">
@@ -147,15 +145,16 @@ const Post = () => {
                     <td>{post.publish_status}</td>
                     <td>{post.author}</td>
                     <td>
-                      <Link
-                        to={`/edit-post/${post.id}`}
+                      <p
                         className="edit hover:text-red-500 cursor-pointer"
+                        onClick={() => openModal(post)}
                       >
                         edit
-                      </Link>
-                      <div className="edit hover:text-red-500 cursor-pointer">
+                      </p>
+
+                      <p className="edit hover:text-red-500 cursor-pointer">
                         delete
-                      </div>
+                      </p>
                     </td>
                   </tr>
                 ))}
