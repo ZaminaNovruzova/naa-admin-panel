@@ -68,7 +68,12 @@ const Post = () => {
               )}
             </div>
 
-            <div className="openModalButton" onClick={openModal}>
+            <div
+              className="openModalButton"
+              onClick={() => {
+                openModal(selectedPost!);
+              }}
+            >
               <p className="add">+</p>
               <p>Add News and Announcements</p>
             </div>

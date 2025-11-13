@@ -47,15 +47,15 @@ const EditPost = () => {
         console.log("data tapilmadi");
       }
       const formData = new FormData();
-      formData.append("title", selectedPost?.title??"");
-      formData.append("content", selectedPost?.content??"");
-      formData.append("type", selectedCategory??"");
+      formData.append("title", selectedPost?.title ?? "");
+      formData.append("content", selectedPost?.content ?? "");
+      formData.append("type", selectedCategory ?? "");
       if (image) {
         formData.append("image_url", image);
 
+        // @ts-ignore
         const result = await PostService.editPost(formData, selectedPost?.id);
         console.log(result, "Post edited successfully");
-        
       }
       closeModal();
     } catch (error) {
